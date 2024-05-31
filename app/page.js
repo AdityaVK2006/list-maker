@@ -9,14 +9,11 @@ const page = () => {
     setList([...list,{item}])
     setItem("")
   }
-  const deleteHandler = (i)=>{
-    
-  }
   return (
     <>
     <h1>List</h1>
     <form>
-      <input type="text" placeholder='Enter items here'
+      <input type="text" placeholder='Add items here'
       value={item}
       onChange={(e)=>{
         setItem(e.target.value)
@@ -25,12 +22,16 @@ const page = () => {
       <button
         onClick={display}
       ><b>Add</b></button>
+      <button onClick={()=>{
+        setList([])
+      }} className='clear'>Clear</button>
       <hr/>
       <div className='list'>
         <ol>{list.map((t,i)=>{
-          return(<li key={i}
-          onClick={(i)=>{
-            deleteHandler(i)
+          return(<li key={i} 
+          onClick={(e)=>{
+            list[i].item = `${list[i].item} ---purchased`
+            setList([...list])
           }}
           >{t.item}</li>) 
         })}

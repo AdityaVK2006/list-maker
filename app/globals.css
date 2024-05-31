@@ -28,6 +28,7 @@ button{
   background-color: aqua;
   color: azure;
   font-weight: 100;
+  margin-right: 2vw;
 }
 li{
   font-size: 4vh;
@@ -35,4 +36,8 @@ li{
 }
 .list{
   padding-left: 2vw;
+}
+.clear{
+  background-color: rgb(246, 31, 31);
+  font-weight: bolder;
 }
