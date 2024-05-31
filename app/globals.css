@@ -1,12 +1,12 @@
 html,body{
   margin: 0;
   padding: 0;
-  background-color: darkblue;
+  background-color: black;
 }
 
 h1{
   line-height: normal;
-  color: aqua;
+  color: white;
   font-size: 5vw;
   text-decoration: underline;
   text-align: center;
@@ -25,8 +25,8 @@ button{
   font-size: large;
   border: none;
   border-radius: 10%;
-  background-color: aqua;
-  color: azure;
+  background-color: white;
+  color: #dadada;
   font-weight: 100;
   margin-right: 2vw;
 }

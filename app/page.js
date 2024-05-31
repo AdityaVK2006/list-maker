@@ -30,7 +30,7 @@ const page = () => {
         <ol>{list.map((t,i)=>{
           return(<li key={i} 
           onClick={(e)=>{
-            list[i].item = `${list[i].item} ---purchased`
+            list[i].item = `${list[i].item} ---purchasedgit`
             setList([...list])
           }}
           >{t.item}</li>) 
