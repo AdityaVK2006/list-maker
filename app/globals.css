@@ -7,10 +7,10 @@ html,body{
 h1{
   line-height: normal;
   color: white;
-  font-size: 5vw;
+  font-size: 8vh;
   text-decoration: underline;
   text-align: center;
-  font-family: cursive;
+  font-family: monospace;
 }
 
 input{
@@ -40,4 +40,36 @@ li{
 .clear{
   background-color: rgb(246, 31, 31);
   font-weight: bolder;
+  margin-left: 4vh;
+}
+.got{
+  height: 4vh;
+  width: 4vh;
+  background-color: yellow;
+  margin-left: 5vh;
+}
+
+@media screen and (max-width: 450px) {
+  input{
+    height: 7vh;
+    width: 50vw;
+    margin: 2vw;
+    font-size: large;
+  }
+  button{
+    height: 7vh;
+    width: 20vw;
+    font-size: large;
+    border: none;
+    border-radius: 10%;
+    background-color: white;
+    color: #dadada;
+    font-weight: 100;
+    margin-right: 2vw;
+  }
+  .clear{
+    background-color: rgb(246, 31, 31);
+    font-weight: bolder;
+    margin-left: 1vh;
+  }
 }

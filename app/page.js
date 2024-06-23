@@ -1,43 +1,37 @@
-"use client"
-import React, { useState } from 'react'
+'use client'
 
-const page = () => {
-  const [item, setItem] = useState("")
-  const [list, setList] = useState([])
-  const display = (e)=>{
-    e.preventDefault()
-    setList([...list,{item}])
-    setItem("")
-  }
+import React from 'react'
+import { PrismaClient } from '@prisma/client'
+import action from '@/components/action'
+import DeleteHandler from '@/components/DeleteHandler'
+import purchased from '@/components/purchased'
+
+const prisma = new PrismaClient() 
+
+const page = async () => {
+  const list = await prisma.list.findMany()
+
   return (
     <>
     <h1>List</h1>
-    <form>
-      <input type="text" placeholder='Add items here'
-      value={item}
-      onChange={(e)=>{
-        setItem(e.target.value)
-      }}
-      />
-      <button
-        onClick={display}
-      ><b>Add</b></button>
-      <button onClick={()=>{
-        setList([])
-      }} className='clear'>Clear</button>
+    <form action={action}>
+      <input type="text" placeholder='Add items here' name='newItem'/>
+      <button><b>Add</b></button>
+    </form>
+    <form action={DeleteHandler}> 
+    <button className='clear'>Clear</button>
+    </form>
+    
       <hr/>
       <div className='list'>
-        <ol>{list.map((t,i)=>{
-          return(<li key={i} 
-          onClick={(e)=>{
-            list[i].item = `${list[i].item} ---purchased`
-            setList([...list])
-          }}
-          >{t.item}</li>) 
-        })}
+        <ol>
+          <form action={purchased}>
+          {list.map((t)=>(
+            <li key={t.id}>{t.item_name}</li>
+          ))}
+          </form>
         </ol>
       </div>
-    </form>
     </> 
   )
 }
